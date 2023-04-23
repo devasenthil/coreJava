@@ -1,0 +1,82 @@
+--To write a  Cursor to display the list of employees who are Working as a Managers or Analyst.
+
+set serveroutput on;
+declare
+    emprec emp%rowtype;
+    cursor mycur is select * from emp where job in ('MANAGER', 'ANALYST');
+begin
+    open mycur;
+    loop
+    fetch mycur into emprec;
+    exit when mycur%NOTFOUND;    
+    dbms_output.put_line(emprec.empno || '     ' || emprec.ename || '    ' || emprec.deptno || emprec.job); 
+    end loop;
+    close mycur;
+end;
+/
+--Write PL/SQL code in Cursor to display employee names and salary
+set serveroutput on;
+declare
+    emprec emp%rowtype;
+    cursor mycurr is select * from emp; 
+begin
+open mycurr;
+   loop
+    fetch mycurr into emprec;
+    exit when mycurr%NOTFOUND;
+    dbms_output.put_line(emprec.ename  || '     ' || emprec.sal);
+   end loop;
+close mycurr;
+end;
+/
+
+--Write PL/SQL code in Procedure to find the Reverse of the  number
+
+--To write a  Cursor to display the list of employees who are Working as a Managers or Analyst.
+
+set serveroutput on;
+declare
+    emprec emp%rowtype;
+    cursor mycur is select * from emp where job in ('MANAGER', 'ANALYST');
+begin
+    open mycur;
+    loop
+    fetch mycur into emprec;
+    exit when mycur%NOTFOUND;    
+    dbms_output.put_line(emprec.empno || '     ' || emprec.ename || '    ' || emprec.deptno || emprec.job); 
+    end loop;
+    close mycur;
+end;
+/
+--Write PL/SQL code in Cursor to display employee names and salary
+set serveroutput on;
+declare
+    emprec emp%rowtype;
+    cursor mycurr is select * from emp; 
+begin
+open mycurr;
+   loop
+    fetch mycurr into emprec;
+    exit when mycurr%NOTFOUND;
+    dbms_output.put_line(emprec.ename  || '     ' || emprec.sal);
+   end loop;
+close mycurr;
+end;
+/
+
+--Write PL/SQL code in Procedure to find the Reverse of the  number
+set serveroutput on;
+declare 
+   x number :=&num;
+begin
+    loop
+       dbms_output.put_line(' x : ' || x);  
+       x:=x-1;
+       if x=0 then exit;
+       end if;    
+    end loop;
+end;
+/
+
+
+
